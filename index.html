@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111111" />
+  <title>Roka Hula Food Flashcards</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <h1>Roka Hula Food Flashcards</h1>
+        <p>Food + photo on the front. Ingredients and useful flavor notes on the back.</p>
+      </div>
+      <button id="shuffleBtn" class="button secondary" type="button">Shuffle</button>
+    </header>
+
+    <section class="toolbar" aria-label="Study controls">
+      <label>
+        <span class="sr-only">Category</span>
+        <select id="categorySelect" aria-label="Filter by category"></select>
+      </label>
+      <label>
+        <span class="sr-only">Search foods</span>
+        <input id="searchInput" type="search" placeholder="Search a food..." autocomplete="off" />
+      </label>
+    </section>
+
+    <div class="status" aria-live="polite">
+      <span id="counter"></span>
+      <span id="categoryLabel"></span>
+    </div>
+
+    <section class="study-area">
+      <button id="prevBtn" class="nav" type="button" aria-label="Previous card">‹</button>
+
+      <div id="flashcard" class="flashcard" role="button" tabindex="0" aria-label="Flip flashcard">
+        <div class="card-inner">
+          <article class="card-face card-front">
+            <div class="image-wrap">
+              <img id="foodImage" src="" alt="" />
+              <div class="photo-shade"></div>
+              <span id="frontCategory" class="pill photo-pill"></span>
+              <div class="front-copy">
+                <h2 id="foodName"></h2>
+                <p>Click to reveal ingredients</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-face card-back">
+            <div class="back-head">
+              <span id="backCategory" class="pill"></span>
+              <h2 id="backFoodName"></h2>
+            </div>
+
+            <div class="back-scroll">
+              <section>
+                <h3>Main components</h3>
+                <ul id="ingredientList"></ul>
+              </section>
+
+              <section id="garnishSection">
+                <h3>Garnishes / finishes</h3>
+                <ul id="garnishList"></ul>
+              </section>
+
+              <section id="flavorSection" class="info-block">
+                <h3>Key flavor notes</h3>
+                <div id="flavorTags" class="tags"></div>
+              </section>
+
+              <section id="comparisonSection" class="info-block">
+                <h3>Easy customer comparison <small>(study aid)</small></h3>
+                <p id="comparisonText"></p>
+              </section>
+
+              <section id="sellingSection" class="info-block source-note">
+                <h3>Menu-guide selling note</h3>
+                <p id="sellingText"></p>
+              </section>
+            </div>
+
+            <p class="flip-hint">Click to flip back</p>
+          </article>
+        </div>
+      </div>
+
+      <button id="nextBtn" class="nav" type="button" aria-label="Next card">›</button>
+    </section>
+
+    <div class="bottom-controls">
+      <button id="flipBtn" class="button primary" type="button">Flip card</button>
+      <button id="randomBtn" class="button secondary" type="button">Random card</button>
+    </div>
+
+    <p class="keyboard-help">Keyboard: ← previous · → next · space flip</p>
+  </main>
+
+  <script src="cards.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
